@@ -1,0 +1,24 @@
+{
+  "name": "Electron-VideoInfo-App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gowthamaraj/Electron-VideoInfo-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gowthamaraj/Electron-VideoInfo-App/issues"
+  },
+  "homepage": "https://github.com/gowthamaraj/Electron-VideoInfo-App#readme",
+  "dependencies": {
+    "electron": "^9.0.4",
+    "fluent-ffmpeg": "^2.1.2"
+  }
+}

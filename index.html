@@ -1,0 +1,83 @@
+<head>
+    <title>VideoInfo</title>
+    <style>
+        body{
+            background-color: slategrey;
+        }
+        h1{
+            color: darkorange;
+        }
+        form{
+            border: solid black 1px;
+            padding: 5px;
+        }
+        label{
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        button{
+            border-radius: 2px;
+            outline: none;
+            border: none;
+            transition: all .5s;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: snow;
+            transform: translateY(1px);
+        }
+        #results{
+            padding: 5px;
+            text-align: start;
+            background-color: snow;
+        }
+        span{
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+   
+    <h1>Video Metadata extractor - (made with Electron)</h1>
+    <hr>
+    <form>
+        <div class="form">
+            <label for="video_file">Select a video file : </label>
+            <input type="file" name="video_file" id="video_file" accept="video/*">
+        </div>
+        <button type="submit">Get Info</button>
+    </form>
+    <div id="results"></div>
+    <script>
+        const electron = require('electron')
+        const {ipcRenderer} = electron
+        let lastModified,name,path,type,size
+        document.querySelector('form').addEventListener('submit',(e)=>{
+            e.preventDefault()
+            lastModified = e.target.video_file.files[0].lastModifiedDate.toDateString()
+            name = e.target.video_file.files[0].name
+            path= e.target.video_file.files[0].path
+            type= e.target.video_file.files[0].type
+            size = e.target.video_file.files[0].size
+            console.log(e.target.video_file.files[0])
+            ipcRenderer.send('video:submit',path)
+        })
+     
+        ipcRenderer.on('video:data',function(event,data){
+            document.getElementById('results').innerHTML = `
+            <p><span>Name :</span> ${name}</p>
+            <p> <span>Path :</span> ${path}</p>
+            <p> <span>Type :</span> ${type}</p>
+            <p> <span>LastModified :</span> ${lastModified}</p>
+            <p> <span>Size :</span> ${size}</p>
+            <p> <span>Duration :</span> ${data.duration}s</p>
+            <p> <span>Rate :</span> ${data.rate}</p>
+            <p> <span>compatible_brands :</span> ${data.tags.compatible_brands}</p>
+            <p> <span>encoder :</span> ${data.tags.encoder}</p>
+            <p> <span>major_brand :</span> ${data.tags.major_brand}</p>
+            `
+            console.log(data.tags)
+        })
+    </script>
+</body>
