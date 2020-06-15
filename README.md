@@ -17,4 +17,4 @@
 ```
 
 ## ScreenShot
-    ![GUI](screenshot/1.PNG)
+![](screenshot/1.PNG)
