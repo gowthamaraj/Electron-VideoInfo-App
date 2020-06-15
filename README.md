@@ -11,7 +11,7 @@
 ## requirements:
 ```sh
     1.ffmpeg
-        for installation : `https://www.ffmpeg.org/download.html`
+        for installation : https://www.ffmpeg.org/download.html
     2.fluent-ffmpeg
     3.Electron
 ```
