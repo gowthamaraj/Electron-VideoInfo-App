@@ -9,12 +9,12 @@
     5.size
 
 ## requirements:
-    ```sh
+```sh
     1.ffmpeg
-        for installation : [click here](https://www.ffmpeg.org/download.html)
+        for installation : `https://www.ffmpeg.org/download.html`
     2.fluent-ffmpeg
     3.Electron
-    ```
+```
 
 ## ScreenShot
-    [![GUI](./screenshot/1.PNG)]()
+    ![GUI](screenshot/1.PNG)
