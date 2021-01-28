@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/gowthamaraj/Electron-VideoInfo-App#readme",
   "dependencies": {
-    "electron": "^9.0.4",
+    "electron": "^9.4.0",
     "fluent-ffmpeg": "^2.1.2"
   }
 }
